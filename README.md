@@ -11,22 +11,31 @@ Ce projet illustre deux approches de communication réseau entre un client et un
 
 ## 📜 Fonctionnalités
 
-### Serveur UDP
-- Utilise un seul socket pour écouter, recevoir et répondre aux messages des clients.
-- Ne nécessite pas de connexion explicite entre le serveur et les clients.
+## 📜 Fonctionnalités
 
-### Client UDP
-- Envoie des messages au serveur UDP sans établir de connexion.
-- Affiche les réponses reçues du serveur.
+### UDP
+- **Serveur UDP** :
+  - Écoute sur un port prédéfini.
+  - Reçoit des messages de n'importe quel client.
+  - Répond directement au client ayant envoyé le message.
 
-### Serveur TCP
-- Crée un socket principal pour écouter les connexions.
-- Accepte les connexions entrantes et crée des sockets dédiés pour chaque client.
-- Gère plusieurs clients en parallèle via des processus fils (`fork()`).
+- **Client UDP** :
+  - Envoie des messages au serveur sans établir de connexion.
+  - Affiche les réponses reçues.
 
-### Client TCP
-- Se connecte explicitement au serveur TCP via un socket.
-- Envoie des messages au serveur et lit les réponses.
+---
+### TCP
+- **Serveur TCP** :
+  - Écoute sur un port prédéfini.
+  - Accepte les connexions entrantes.
+  - Lit les messages du client et y répond.
+  - Traite chaque connexion indépendamment.
+
+- **Client TCP** :
+  - Se connecte au serveur via une adresse IP et un port.
+  - Envoie des messages au serveur.
+  - Lit les réponses du serveur.
+
 
 ---
 
